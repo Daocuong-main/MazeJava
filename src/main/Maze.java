@@ -47,7 +47,6 @@ public class Maze {
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         frame.setContentPane(container);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         MazeGridPanel grid = new MazeGridPanel(rows, cols);
         grid.setBackground(Color.BLACK);
 
@@ -163,6 +162,7 @@ public class Maze {
             grid.generate(genMethodsComboBox.getSelectedIndex());
             genSpeedSlider.setValue(speed);
             cardLayout.next(cards);
+
         });
 
         solveButton.addActionListener(event -> {
@@ -184,7 +184,10 @@ public class Maze {
             }
         });
 
-        resetButton.addActionListener(event -> createAndShowGUI());
+        resetButton.addActionListener(event -> {
+            frame.setVisible(false);
+            createAndShowGUI();
+        });
 
         frame.pack();
         frame.setLocationRelativeTo(null);
