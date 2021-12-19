@@ -1,46 +1,22 @@
 package main;
 
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.util.Hashtable;
-
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import java.awt.*;
+import java.util.Hashtable;
 
 public class Maze {
 
     public static final int WIDTH = 500;
     public static final int HEIGHT = WIDTH; // best to keep these the same. variable is only created for readability.
     public static final int W = 20;
-
+    private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's",
+            "3. Hunt & Kill", "4. Kruskal's", "5. Prim's", "6. Sidewinder", "7. Spiral Backtracker",
+            "8. Wilson's", "9. Zig-Zag"};
+    private static final String[] SOLVING_METHODS = {"0. Bi-directional DFS", "1. BFS", "2. DFS", "3. Dijkstra's"};
     public static int speed = 1;
     public static boolean generated, solved;
-
-    private static final String[] GENERATION_METHODS = {"0. Aldous-Broder", "1. Binary Tree",
-            "2. DFS", "3. Eller's", "4. Growing Forest", "5. Growing Tree", "6. Houston's",
-            "7. Hunt & Kill", "8. Kruskal's", "9. Prim's", "10. Quad-directional DFS", "11. Sidewinder",
-            "12. Spiral Backtracker", "13. Wilson's", "14. Zig-Zag"};
-    private static final String[] SOLVING_METHODS = {"0. Bi-directional DFS", "1. BFS", "2. DFS", "3. Dijkstra's"};
-
     private int cols, rows;
-
-    public static void main(String[] args) {
-        new Maze();
-    }
 
     public Maze() {
         cols = Math.floorDiv(WIDTH, W);
@@ -58,6 +34,10 @@ public class Maze {
                 createAndShowGUI();
             }
         });
+    }
+
+    public static void main(String[] args) {
+        new Maze();
     }
 
     private void createAndShowGUI() {
@@ -123,7 +103,6 @@ public class Maze {
         card2.setLayout(new GridBagLayout());
 
         GridBagConstraints c = new GridBagConstraints();
-        ;
 
         c.insets = new Insets(5, 0, 5, 18);
         c.fill = GridBagConstraints.BOTH;
