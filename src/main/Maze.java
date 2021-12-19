@@ -10,9 +10,7 @@ public class Maze {
     public static final int WIDTH = 500;
     public static final int HEIGHT = WIDTH; // best to keep these the same. variable is only created for readability.
     public static final int W = 20;
-    private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's",
-            "3. Hunt & Kill", "4. Kruskal's", "5. Prim's", "6. Sidewinder", "7. Spiral Backtracker",
-            "8. Wilson's", "9. Zig-Zag"};
+    private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's", "3. Hunt & Kill", "4. Kruskal's", "5. Prim's", "6. Sidewinder", "7. Spiral Backtracker", "8. Wilson's", "9. Zig-Zag"};
     private static final String[] SOLVING_METHODS = {"0. Bi-directional DFS", "1. BFS", "2. DFS", "3. Dijkstra's"};
     public static int speed = 1;
     public static boolean generated, solved;
@@ -27,8 +25,7 @@ public class Maze {
             public void run() {
                 try {
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-                        | UnsupportedLookAndFeelException ex) {
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
                     ex.printStackTrace();
                 }
                 createAndShowGUI();
