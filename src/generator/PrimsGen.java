@@ -13,9 +13,9 @@ import main.MazeGridPanel;
 import util.Cell;
 
 public class PrimsGen {
-	
+
 	private final List<Cell> grid;
-	private final List<Cell> frontier = new ArrayList<Cell>();
+	private final List<Cell> frontier = new ArrayList<>();
 	private Cell current;
 
 	public PrimsGen(List<Cell> grid, MazeGridPanel panel) {
@@ -23,6 +23,7 @@ public class PrimsGen {
 		current = grid.get(0);
 		final Timer timer = new Timer(Maze.speed, null);
 		timer.addActionListener(new ActionListener() {
+			long startTime = System.currentTimeMillis();
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!grid.parallelStream().allMatch(c -> c.isVisited())) {
@@ -31,6 +32,9 @@ public class PrimsGen {
 					current = null;
 					Maze.generated = true;
 					timer.stop();
+					long endTime = System.currentTimeMillis();
+					long timeElapsed = endTime - startTime;
+					System.out.println(timeElapsed);
 				}
 				panel.setCurrent(current);
 				panel.repaint();
@@ -39,24 +43,24 @@ public class PrimsGen {
 		});
 		timer.start();
 	}
-	
+
 	private void carve() {
 		current.setVisited(true);
-		
+
 		List<Cell> neighs = current.getUnvisitedNeighboursList(grid);
 		frontier.addAll(neighs);
 		Collections.shuffle(frontier);
-		
+
 		current = frontier.get(0);
-		
+
 		List<Cell> inNeighs = current.getAllNeighbours(grid);
 		inNeighs.removeIf(c -> !c.isVisited());
-		
+
 		if (!inNeighs.isEmpty()) {
 			Collections.shuffle(inNeighs);
 			current.removeWalls(inNeighs.get(0));
 		}
-		
+
 		frontier.removeIf(c -> c.isVisited());
 	}
 }

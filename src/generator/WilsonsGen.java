@@ -15,7 +15,7 @@ import util.Cell;
 public class WilsonsGen {
 
 	private final List<Cell> grid;
-	private final Stack<Cell> stack = new Stack<Cell>();
+	private final Stack<Cell> stack = new Stack<>();
 	private Cell current;
 	private final Random r = new Random();
 

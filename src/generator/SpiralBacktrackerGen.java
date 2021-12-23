@@ -17,7 +17,7 @@ public class SpiralBacktrackerGen {
 	
 	private static final int STEP_COUNT = 4; // change this to generate different mazes.
 
-	private final Stack<Cell> stack = new Stack<Cell>();
+	private final Stack<Cell> stack = new Stack<>();
 	private final List<Cell> grid;
 	private final Random r = new Random();
 	

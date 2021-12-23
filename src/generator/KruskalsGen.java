@@ -18,7 +18,7 @@ import util.DisjointSets;
 
 public class KruskalsGen {
 
-	private final Stack<Cell> stack = new Stack<Cell>();
+	private final Stack<Cell> stack = new Stack<>();
 	private final DisjointSets disjointSet = new DisjointSets();
 	private final List<Cell> grid;
 	private Cell current;

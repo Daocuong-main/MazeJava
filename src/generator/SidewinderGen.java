@@ -15,7 +15,7 @@ import util.Cell;
 public class SidewinderGen {
 
 	private final List<Cell> grid;
-	private final List<Cell> run = new ArrayList<Cell>();
+	private final List<Cell> run = new ArrayList<>();
 	private Cell current;
 	private int index;
 	private final Random r = new Random();

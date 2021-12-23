@@ -27,7 +27,7 @@ public class ZigZagGen {
 	private final Queue<Cell> queue;
 	private Cell current, goal;
 	private final List<Cell> grid;
-	private List<Cell> notInMaze = new ArrayList<Cell>();
+	private List<Cell> notInMaze = new ArrayList<>();
 	private final Random r = new Random();
 
 	public ZigZagGen(List<Cell> grid, MazeGridPanel panel) {

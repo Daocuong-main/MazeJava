@@ -13,8 +13,8 @@ import util.Cell;
 
 public class BiDFSSolve {
 
-	private final Stack<Cell> path1 = new Stack<Cell>();
-	private final Stack<Cell> path2 = new Stack<Cell>();
+	private final Stack<Cell> path1 = new Stack<>();
+	private final Stack<Cell> path2 = new Stack<>();
 	private Cell current1, current2;
 	private final List<Cell> grid;
 

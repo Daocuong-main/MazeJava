@@ -13,7 +13,7 @@ import util.Cell;
 
 public class BFSSolve {
 	
-	private final Queue<Cell> queue = new LinkedList<Cell>();
+	private final Queue<Cell> queue = new LinkedList<>();
 	private Cell current;
 	private final List<Cell> grid;
 

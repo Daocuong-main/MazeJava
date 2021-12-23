@@ -15,7 +15,7 @@ import util.Cell;
 
 public class DFSSolve {
 
-	private final Stack<Cell> path = new Stack<Cell>();
+	private final Stack<Cell> path = new Stack<>();
 	private Cell current;
 	private final List<Cell> grid;
 

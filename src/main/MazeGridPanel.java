@@ -15,8 +15,8 @@ import java.util.List;
 public class MazeGridPanel extends JPanel {
 
     private static final long serialVersionUID = 7237062514425122227L;
-    private final List<Cell> grid = new ArrayList<Cell>();
-    private List<Cell> currentCells = new ArrayList<Cell>();
+    private final List<Cell> grid = new ArrayList<>();
+    private List<Cell> currentCells = new ArrayList<>();
 
     public MazeGridPanel(int rows, int cols) {
         for (int x = 0; x < rows; x++) {

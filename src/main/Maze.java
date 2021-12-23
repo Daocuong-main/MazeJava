@@ -7,7 +7,7 @@ import java.util.Hashtable;
 
 public class Maze {
 
-    public static final int WIDTH = 500;
+    public static final int WIDTH = 256;
     public static final int HEIGHT = WIDTH; // best to keep these the same. variable is only created for readability.
     public static final int W = 20;
     private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's",
@@ -162,7 +162,6 @@ public class Maze {
             grid.generate(genMethodsComboBox.getSelectedIndex());
             genSpeedSlider.setValue(speed);
             cardLayout.next(cards);
-
         });
 
         solveButton.addActionListener(event -> {

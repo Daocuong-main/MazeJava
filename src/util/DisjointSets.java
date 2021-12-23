@@ -7,24 +7,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/*
- * Code from: http://www.sanfoundry.com/java-program-implement-disjoint-set-data-structure/
- * 
- * Author: Manish Kumar Bhojasia
- * 
- */
-
 public class DisjointSets {
 
 	private List<Map<Integer, Set<Integer>>> disjointSet;
 
 	public DisjointSets() {
-		disjointSet = new ArrayList<Map<Integer, Set<Integer>>>();
+		disjointSet = new ArrayList<>();
 	}
 
 	public void create_set(int element) {
-		Map<Integer, Set<Integer>> map = new HashMap<Integer, Set<Integer>>();
-		Set<Integer> set = new HashSet<Integer>();
+		Map<Integer, Set<Integer>> map = new HashMap<>();
+		Set<Integer> set = new HashSet<>();
 		
 		set.add(element);
 		map.put(element, set);
