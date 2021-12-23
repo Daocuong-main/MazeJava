@@ -94,19 +94,19 @@ public class Cell {
         int y2 = y * Maze.W;
 
         if (visited) {
-            g.setColor(Color.MAGENTA);
+            g.setColor(Color.WHITE);
             g.fillRect(x2, y2, Maze.W, Maze.W);
         }
 
         if (path) {
-            g.setColor(Color.BLUE);
+            g.setColor(Color.CYAN);
             g.fillRect(x2, y2, Maze.W, Maze.W);
         } else if (deadEnd) {
-            g.setColor(Color.RED);
+            g.setColor(Color.ORANGE);
             g.fillRect(x2, y2, Maze.W, Maze.W);
         }
 
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
         if (walls[0]) {
             g.drawLine(x2, y2, x2 + Maze.W, y2);
         }
@@ -119,6 +119,7 @@ public class Cell {
         if (walls[3]) {
             g.drawLine(x2, y2 + Maze.W, x2, y2);
         }
+
     }
 
     public void displayAsColor(Graphics g, Color color) {

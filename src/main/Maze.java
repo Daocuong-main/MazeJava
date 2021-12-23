@@ -6,10 +6,10 @@ import java.awt.*;
 import java.util.Hashtable;
 
 public class Maze {
-
-    public static final int WIDTH = 256;
-    public static final int HEIGHT = WIDTH; // best to keep these the same. variable is only created for readability.
-    public static final int W = 20;
+    public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public static final int HEIGHT = (int) ((int) screenSize.getHeight() - (screenSize.getHeight()*0.25));
+    public static final int WIDTH = HEIGHT;
+    public static final int W = WIDTH/16;
     private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's", "3. Hunt & Kill", "4. Kruskal's", "5. Prim's", "6. Sidewinder", "7. Spiral Backtracker", "8. Wilson's", "9. Zig-Zag"};
     private static final String[] SOLVING_METHODS = {"0. Bi-directional DFS", "1. BFS", "2. DFS", "3. Dijkstra's"};
     public static int speed = 1;
@@ -45,12 +45,12 @@ public class Maze {
         frame.setContentPane(container);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MazeGridPanel grid = new MazeGridPanel(rows, cols);
-        grid.setBackground(Color.BLACK);
+        grid.setBackground(Color.WHITE);
 
         JPanel mazeBorder = new JPanel();
-        final int BORDER_SIZE = 20;
+        final int BORDER_SIZE = 1;
         mazeBorder.setBounds(0, 0, WIDTH + BORDER_SIZE, HEIGHT + BORDER_SIZE);
-        mazeBorder.setBackground(Color.BLACK);
+        mazeBorder.setBackground(Color.WHITE);
         mazeBorder.setBorder(BorderFactory.createEmptyBorder(BORDER_SIZE, BORDER_SIZE, BORDER_SIZE, BORDER_SIZE));
 
         mazeBorder.add(grid);
