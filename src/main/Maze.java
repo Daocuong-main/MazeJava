@@ -44,6 +44,7 @@ public class Maze {
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         frame.setContentPane(container);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         MazeGridPanel grid = new MazeGridPanel(rows, cols);
         grid.setBackground(Color.WHITE);
 
@@ -180,10 +181,7 @@ public class Maze {
             }
         });
 
-        resetButton.addActionListener(event -> {
-            frame.setVisible(false);
-            createAndShowGUI();
-        });
+        resetButton.addActionListener(event -> createAndShowGUI());
 
         frame.pack();
         frame.setLocationRelativeTo(null);
