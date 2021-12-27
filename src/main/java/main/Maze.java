@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.Hashtable;
 
 public class Maze {
-    public static final int size = 128;
+    public static final int size = 16;
     private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's", "4. Kruskal's", "5. Prim's", "6. Sidewinder"};
     private static final String[] SOLVING_METHODS = {"0. Bi-directional DFS", "1. BFS", "2. DFS", "3. Dijkstra's"};
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

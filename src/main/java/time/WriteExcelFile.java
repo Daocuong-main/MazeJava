@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class WriteExcelFile {
 
-    private static final String excelFilePath = "F:\\JavaProject\\MazeJava\\src\\main\\java\\time\\Time.xlsx";
+    private static final String excelFilePath = "src/main/java/time/Time.xlsx";
 
     public static void writeExcel(int size, int col, long timeElapsed) throws IOException {
         FileInputStream fileInputStream = new FileInputStream(new File(excelFilePath));
