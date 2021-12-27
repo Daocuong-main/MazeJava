@@ -7,7 +7,7 @@ import java.util.Hashtable;
 
 public class Maze {
     public static final int size = 16;
-    private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's", "4. Kruskal's", "5. Prim's", "6. Sidewinder"};
+    private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's", "3. Kruskal's", "4. Prim's", "5. Sidewinder"};
     private static final String[] SOLVING_METHODS = {"0. Bi-directional DFS", "1. BFS", "2. DFS", "3. Dijkstra's"};
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static final int HEIGHT = (int) ((int) screenSize.getHeight() - (screenSize.getHeight() * 0.2));
