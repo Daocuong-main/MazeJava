@@ -7,9 +7,9 @@ import java.util.Hashtable;
 
 public class Maze {
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    public static final int HEIGHT = (int) ((int) screenSize.getHeight() - (screenSize.getHeight()*0.25));
+    public static final int HEIGHT = (int) ((int) screenSize.getHeight() - (screenSize.getHeight()*0.2));
     public static final int WIDTH = HEIGHT;
-    public static final int size = 32;
+    public static final int size = 128;
     public static final int W = WIDTH/size;
     private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's","4. Kruskal's", "5. Prim's", "6. Sidewinder"};
     private static final String[] SOLVING_METHODS = {"0. Bi-directional DFS", "1. BFS", "2. DFS", "3. Dijkstra's"};
@@ -73,25 +73,25 @@ public class Maze {
         genMethodsComboBox.setMaximumRowCount(genMethodsComboBox.getModel().getSize());
         solveMethodsComboBox.setMaximumRowCount(solveMethodsComboBox.getModel().getSize());
 
-        JSlider initialSpeedSlider = new JSlider(JSlider.HORIZONTAL, 1, 40, 1);
-        JSlider genSpeedSlider = new JSlider(JSlider.HORIZONTAL, 1, 40, 1);
-        JSlider solveSpeedSlider = new JSlider(JSlider.HORIZONTAL, 1, 40, 1);
+//        JSlider initialSpeedSlider = new JSlider(JSlider.HORIZONTAL, 1, 40, 1);
+//        JSlider genSpeedSlider = new JSlider(JSlider.HORIZONTAL, 1, 40, 1);
+//        JSlider solveSpeedSlider = new JSlider(JSlider.HORIZONTAL, 1, 40, 1);
 
         Hashtable<Integer, JLabel> labels = new Hashtable<Integer, JLabel>();
         labels.put(1, new JLabel("Fast"));
         labels.put(40, new JLabel("Slow"));
 
-        initialSpeedSlider.setLabelTable(labels);
-        initialSpeedSlider.setInverted(true);
-        initialSpeedSlider.setPaintLabels(true);
+//        initialSpeedSlider.setLabelTable(labels);
+//        initialSpeedSlider.setInverted(true);
+//        initialSpeedSlider.setPaintLabels(true);
 
-        genSpeedSlider.setLabelTable(labels);
-        genSpeedSlider.setInverted(true);
-        genSpeedSlider.setPaintLabels(true);
+//        genSpeedSlider.setLabelTable(labels);
+//        genSpeedSlider.setInverted(true);
+//        genSpeedSlider.setPaintLabels(true);
 
-        solveSpeedSlider.setLabelTable(labels);
-        solveSpeedSlider.setInverted(true);
-        solveSpeedSlider.setPaintLabels(true);
+//        solveSpeedSlider.setLabelTable(labels);
+//        solveSpeedSlider.setInverted(true);
+//        solveSpeedSlider.setPaintLabels(true);
 
         // Create the card panels.
 
@@ -121,8 +121,8 @@ public class Maze {
         c.gridheight = 1;
         c.gridx = 0;
         c.gridy = 1;
-        card1.add(initialSpeedSlider, c);
-        card2.add(genSpeedSlider, c);
+//        card1.add(initialSpeedSlider, c);
+//        card2.add(genSpeedSlider, c);
 
         JPanel card3 = new JPanel();
         card3.setLayout(new GridBagLayout());
@@ -134,7 +134,7 @@ public class Maze {
         card3.add(resetButton, c);
         c.gridx = 0;
         c.gridy = 2;
-        card3.add(solveSpeedSlider, c);
+//        card3.add(solveSpeedSlider, c);
 
         // Create the panel that contains the cards.
         JPanel cards = new JPanel(cardLayout);
@@ -146,20 +146,20 @@ public class Maze {
 
         container.add(cards);
 
-        genSpeedSlider.addChangeListener(event -> {
-            speed = genSpeedSlider.getValue();
-        });
-
-        solveSpeedSlider.addChangeListener(event -> {
-            speed = solveSpeedSlider.getValue();
-        });
+//        genSpeedSlider.addChangeListener(event -> {
+//            speed = genSpeedSlider.getValue();
+//        });
+//
+//        solveSpeedSlider.addChangeListener(event -> {
+//            speed = solveSpeedSlider.getValue();
+//        });
 
         runButton.addActionListener(event -> {
-            speed = initialSpeedSlider.getValue();
+//            speed = initialSpeedSlider.getValue();
             generated = false;
             solved = false;
             grid.generate(genMethodsComboBox.getSelectedIndex());
-            genSpeedSlider.setValue(speed);
+//            genSpeedSlider.setValue(speed);
             cardLayout.next(cards);
         });
 
@@ -167,7 +167,7 @@ public class Maze {
             if (generated) {
                 grid.solve(solveMethodsComboBox.getSelectedIndex());
                 cardLayout.last(cards);
-                solveSpeedSlider.setValue(speed);
+//                solveSpeedSlider.setValue(speed);
             } else {
                 JOptionPane.showMessageDialog(frame, "Please wait until the maze has been generated.");
             }
