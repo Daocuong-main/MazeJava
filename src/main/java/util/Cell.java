@@ -152,7 +152,7 @@ public class Cell {
         }
     }
 
-    private Cell randomNeighbour(List<Cell> neighbours) {
+    private Cell randomNeighbour(java.util.List<Cell> neighbours) {
         if (neighbours.size() > 0) {
             return neighbours.get(new Random().nextInt(neighbours.size()));
         } else {
@@ -160,7 +160,7 @@ public class Cell {
         }
     }
 
-    private Cell checkNeighbourInGridBounds(List<Cell> grid, Cell neighbour) {
+    private Cell checkNeighbourInGridBounds(java.util.List<Cell> grid, Cell neighbour) {
         if (grid.contains(neighbour)) {
             return grid.get(grid.indexOf(neighbour));
         } else {
@@ -169,9 +169,9 @@ public class Cell {
     }
 
     // Used for Wilson's algorithm
-    public Cell getNonPathNeighbour(List<Cell> grid) {
+    public Cell getNonPathNeighbour(java.util.List<Cell> grid) {
 
-        List<Cell> neighbours = new ArrayList<>(4);
+        java.util.List<Cell> neighbours = new ArrayList<>(4);
 
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
@@ -189,9 +189,9 @@ public class Cell {
         return randomNeighbour(neighbours);
     }
 
-    public Cell getUnvisitedNeighbour(List<Cell> grid) {
+    public Cell getUnvisitedNeighbour(java.util.List<Cell> grid) {
 
-        List<Cell> neighbours = getUnvisitedNeighboursList(grid);
+        java.util.List<Cell> neighbours = getUnvisitedNeighboursList(grid);
 
         if (neighbours.size() == 1) {
             return neighbours.get(0);
@@ -199,9 +199,9 @@ public class Cell {
         return randomNeighbour(neighbours);
     }
 
-    public List<Cell> getUnvisitedNeighboursList(List<Cell> grid) {
+    public java.util.List<Cell> getUnvisitedNeighboursList(java.util.List<Cell> grid) {
 
-        List<Cell> neighbours = new ArrayList<>(4);
+        java.util.List<Cell> neighbours = new ArrayList<>(4);
 
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
@@ -217,8 +217,8 @@ public class Cell {
     }
 
     // no walls between
-    public List<Cell> getValidMoveNeighbours(List<Cell> grid) {
-        List<Cell> neighbours = new ArrayList<>(4);
+    public java.util.List<Cell> getValidMoveNeighbours(java.util.List<Cell> grid) {
+        java.util.List<Cell> neighbours = new ArrayList<>(4);
 
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
@@ -245,8 +245,8 @@ public class Cell {
     }
 
     // used for DFS solving, gets a neighbour that could potentially be part of the solution path.
-    public Cell getPathNeighbour(List<Cell> grid) {
-        List<Cell> neighbours = new ArrayList<>();
+    public Cell getPathNeighbour(java.util.List<Cell> grid) {
+        java.util.List<Cell> neighbours = new ArrayList<>();
 
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
@@ -284,8 +284,8 @@ public class Cell {
         return randomNeighbour(neighbours);
     }
 
-    public List<Cell> getAllNeighbours(List<Cell> grid) {
-        List<Cell> neighbours = new ArrayList<>();
+    public java.util.List<Cell> getAllNeighbours(java.util.List<Cell> grid) {
+        java.util.List<Cell> neighbours = new ArrayList<>();
 
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
@@ -300,15 +300,15 @@ public class Cell {
         return neighbours;
     }
 
-    public Cell getTopNeighbour(List<Cell> grid) {
+    public Cell getTopNeighbour(java.util.List<Cell> grid) {
         return checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
     }
 
-    public Cell getRightNeighbour(List<Cell> grid) {
+    public Cell getRightNeighbour(java.util.List<Cell> grid) {
         return checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
     }
 
-    public Cell getBottomNeighbour(List<Cell> grid) {
+    public Cell getBottomNeighbour(java.util.List<Cell> grid) {
         return checkNeighbourInGridBounds(grid, new Cell(x, y + 1));
     }
 

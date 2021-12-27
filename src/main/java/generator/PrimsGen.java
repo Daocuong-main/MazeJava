@@ -2,6 +2,7 @@ package generator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,18 +13,23 @@ import main.Maze;
 import main.MazeGridPanel;
 import util.Cell;
 
+import static main.Maze.size;
+import static time.WriteExcelFile.writeExcel;
+
 public class PrimsGen {
 
 	private final List<Cell> grid;
 	private final List<Cell> frontier = new ArrayList<>();
 	private Cell current;
+	private long startTime;
+	private long endTime;
+	private long timeElapsed;
 
 	public PrimsGen(List<Cell> grid, MazeGridPanel panel) {
 		this.grid = grid;
 		current = grid.get(0);
 		final Timer timer = new Timer(Maze.speed, null);
 		timer.addActionListener(new ActionListener() {
-			long startTime = System.currentTimeMillis();
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!grid.parallelStream().allMatch(c -> c.isVisited())) {
@@ -32,9 +38,13 @@ public class PrimsGen {
 					current = null;
 					Maze.generated = true;
 					timer.stop();
-					long endTime = System.currentTimeMillis();
-					long timeElapsed = endTime - startTime;
-					System.out.println(timeElapsed);
+					endTime = System.currentTimeMillis();
+					timeElapsed = endTime - startTime;
+					try {
+						writeExcel(size,5, timeElapsed);
+					} catch (IOException ex) {
+						ex.printStackTrace();
+					}
 				}
 				panel.setCurrent(current);
 				panel.repaint();
@@ -42,6 +52,7 @@ public class PrimsGen {
 			}
 		});
 		timer.start();
+		startTime = System.currentTimeMillis();
 	}
 
 	private void carve() {

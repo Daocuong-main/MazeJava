@@ -7,8 +7,12 @@ import util.Cell;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 import java.util.Random;
+
+import static main.Maze.size;
+import static time.WriteExcelFile.writeExcel;
 
 public class BinaryTreeGen {
 
@@ -16,6 +20,10 @@ public class BinaryTreeGen {
     private final Random r = new Random();
     private Cell current;
     private int index;
+    private long startTime;
+    private long endTime;
+    private long timeElapsed;
+
 
     public BinaryTreeGen(List<Cell> grid, MazeGridPanel panel) {
         this.grid = grid;
@@ -31,6 +39,13 @@ public class BinaryTreeGen {
                     current = null;
                     Maze.generated = true;
                     timer.stop();
+                    endTime = System.currentTimeMillis();
+                    timeElapsed = endTime - startTime;
+                    try {
+                        writeExcel(size,1, timeElapsed);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
                 panel.setCurrent(current);
                 panel.repaint();
@@ -38,6 +53,7 @@ public class BinaryTreeGen {
             }
         });
         timer.start();
+        startTime = System.currentTimeMillis();
     }
 
     private void carve() {

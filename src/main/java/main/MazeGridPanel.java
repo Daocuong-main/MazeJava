@@ -45,25 +45,13 @@ public class MazeGridPanel extends JPanel {
                 new EllersGen(grid, this);
                 break;
             case 3:
-                new HuntAndKillGen(grid, this);
-                break;
-            case 4:
                 new KruskalsGen(grid, this);
                 break;
-            case 5:
+            case 4:
                 new PrimsGen(grid, this);
                 break;
-            case 6:
-                new SidewinderGen(grid, this);
-                break;
-            case 7:
-                new SpiralBacktrackerGen(grid, this);
-                break;
-            case 8:
-                new WilsonsGen(grid, this);
-                break;
             default:
-                new ZigZagGen(grid, this);
+                new SidewinderGen(grid, this);
                 break;
         }
     }

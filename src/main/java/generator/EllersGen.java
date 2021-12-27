@@ -8,7 +8,11 @@ import util.DisjointSets;
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.*;
+
+import static main.Maze.size;
+import static time.WriteExcelFile.writeExcel;
 
 // Slightly modified version in that the algorithm implemented here focuses on columns rather than rows.
 
@@ -19,8 +23,10 @@ public class EllersGen {
     private final DisjointSets disjointSet = new DisjointSets();
     private List<Cell> currentCol;
     private int fromIndex, toIndex;
-
     private boolean genNextCol = true;
+    private long startTime;
+    private long endTime;
+    private long timeElapsed;
 
     public EllersGen(List<Cell> grid, MazeGridPanel panel) {
         this.grid = grid;
@@ -45,10 +51,18 @@ public class EllersGen {
                 } else if (grid.parallelStream().allMatch(c -> c.isVisited())) {
                     Maze.generated = true;
                     timer.stop();
+                    endTime = System.currentTimeMillis();
+                    timeElapsed = endTime - startTime;
+                    try {
+                        writeExcel(size,3, timeElapsed);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         });
         timer.start();
+        startTime = System.currentTimeMillis();
     }
 
     private class ColumnGen {

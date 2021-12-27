@@ -9,8 +9,9 @@ public class Maze {
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static final int HEIGHT = (int) ((int) screenSize.getHeight() - (screenSize.getHeight()*0.25));
     public static final int WIDTH = HEIGHT;
-    public static final int W = WIDTH/16;
-    private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's", "3. Hunt & Kill", "4. Kruskal's", "5. Prim's", "6. Sidewinder", "7. Spiral Backtracker", "8. Wilson's", "9. Zig-Zag"};
+    public static final int size = 32;
+    public static final int W = WIDTH/size;
+    private static final String[] GENERATION_METHODS = {"0. Binary Tree", "1. DFS", "2. Eller's","4. Kruskal's", "5. Prim's", "6. Sidewinder"};
     private static final String[] SOLVING_METHODS = {"0. Bi-directional DFS", "1. BFS", "2. DFS", "3. Dijkstra's"};
     public static int speed = 1;
     public static boolean generated, solved;
