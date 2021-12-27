@@ -19,8 +19,6 @@ m
 =.idea/libraries/Maven__com_github_virtuald_curvesapi_1_04.xml,b\b\bb6fe693714e0f002a79ebc6f4e31ae22dc631fd
 <
 MazeJava.iml,f\1\f17ec539c559b58ce36f2fdf6540fd04e0383f19
-R
-"src/main/java/solver/BFSSolve.java,9\e\9ef5fb90404591900a3c4cde2e724e4984445423
 T
 $src/main/java/solver/BiDFSSolve.java,4\8\4829fb3387e61cfa3beb30a3556b63a4c2e97c6e
 Z
