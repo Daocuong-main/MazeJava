@@ -13,7 +13,7 @@ public class Maze {
     public static final int HEIGHT = (int) ((int) screenSize.getHeight() - (screenSize.getHeight() * 0.2));
     public static final int WIDTH = HEIGHT;
     public static final int W = WIDTH / size;
-    public static int speed = 0;
+    public static int speed = 50;
     public static boolean generated, solved;
     private int cols, rows;
 

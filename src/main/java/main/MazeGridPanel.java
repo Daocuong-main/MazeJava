@@ -80,7 +80,7 @@ public class MazeGridPanel extends JPanel {
     }
 
     public void setCurrent(Cell current) {
-        if (currentCells.size() == 0) {
+        if (currentCells.isEmpty()) {
             currentCells.add(current);
         } else {
             currentCells.set(0, current);
@@ -91,6 +91,7 @@ public class MazeGridPanel extends JPanel {
         this.currentCells = currentCells;
     }
 
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -98,7 +99,7 @@ public class MazeGridPanel extends JPanel {
             c.draw(g);
         }
         for (Cell c : currentCells) {
-            if (c != null) c.displayAsColor(g, Color.ORANGE);
+            if (c != null) c.displayAsColor(g, Color.RED);
         }
         grid.get(0).displayAsColor(g, Color.GREEN); // start cell
         grid.get(grid.size() - 1).displayAsColor(g, Color.YELLOW); // end or goal cell

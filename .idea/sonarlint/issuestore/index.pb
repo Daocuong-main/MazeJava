@@ -19,8 +19,6 @@ m
 =.idea/libraries/Maven__com_github_virtuald_curvesapi_1_04.xml,b\b\bb6fe693714e0f002a79ebc6f4e31ae22dc631fd
 <
 MazeJava.iml,f\1\f17ec539c559b58ce36f2fdf6540fd04e0383f19
-L
-src/main/java/util/Cell.java,8\5\850995f3e446b244c3b21f28c3086e3b67c65582
 S
 #src/main/java/generator/DFSGen.java,5\0\50ec7e0156b9e7d1666fc8388e154e63ee0406cb
 T

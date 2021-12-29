@@ -126,8 +126,9 @@ public class Cell {
         int x2 = x * Maze.W;
         int y2 = y * Maze.W;
         g.setColor(color);
-        g.fillRect(x2, y2, Maze.W, Maze.W);
+        g.fillRect(x2+2, y2+2, Maze.W-3, Maze.W-3);
     }
+
 
     public void removeWalls(Cell next) {
         int x = this.x - next.x;
@@ -168,30 +169,9 @@ public class Cell {
         }
     }
 
-    // Used for Wilson's algorithm
-    public Cell getNonPathNeighbour(java.util.List<Cell> grid) {
-
-        java.util.List<Cell> neighbours = new ArrayList<>(4);
-
-        Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
-        Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
-        Cell bottom = checkNeighbourInGridBounds(grid, new Cell(x, y + 1));
-        Cell left = checkNeighbourInGridBounds(grid, new Cell(x - 1, y));
-
-        if (top != null) if (!top.path) neighbours.add(top);
-        if (right != null) if (!right.path) neighbours.add(right);
-        if (bottom != null) if (!bottom.path) neighbours.add(bottom);
-        if (left != null) if (!left.path) neighbours.add(left);
-
-        if (neighbours.size() == 1) {
-            return neighbours.get(0);
-        }
-        return randomNeighbour(neighbours);
-    }
-
     public Cell getUnvisitedNeighbour(java.util.List<Cell> grid) {
 
-        java.util.List<Cell> neighbours = getUnvisitedNeighboursList(grid);
+        List<Cell> neighbours = getUnvisitedNeighboursList(grid);
 
         if (neighbours.size() == 1) {
             return neighbours.get(0);
@@ -199,9 +179,9 @@ public class Cell {
         return randomNeighbour(neighbours);
     }
 
-    public java.util.List<Cell> getUnvisitedNeighboursList(java.util.List<Cell> grid) {
+    public List<Cell> getUnvisitedNeighboursList(List<Cell> grid) {
 
-        java.util.List<Cell> neighbours = new ArrayList<>(4);
+        List<Cell> neighbours = new ArrayList<>(4);
 
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
@@ -217,8 +197,8 @@ public class Cell {
     }
 
     // no walls between
-    public java.util.List<Cell> getValidMoveNeighbours(java.util.List<Cell> grid) {
-        java.util.List<Cell> neighbours = new ArrayList<>(4);
+    public List<Cell> getValidMoveNeighbours(List<Cell> grid) {
+        List<Cell> neighbours = new ArrayList<>(4);
 
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
