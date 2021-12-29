@@ -19,16 +19,10 @@ m
 =.idea/libraries/Maven__com_github_virtuald_curvesapi_1_04.xml,b\b\bb6fe693714e0f002a79ebc6f4e31ae22dc631fd
 <
 MazeJava.iml,f\1\f17ec539c559b58ce36f2fdf6540fd04e0383f19
-T
-$src/main/java/solver/BiDFSSolve.java,4\8\4829fb3387e61cfa3beb30a3556b63a4c2e97c6e
 L
 src/main/java/util/Cell.java,8\5\850995f3e446b244c3b21f28c3086e3b67c65582
 S
 #src/main/java/generator/DFSGen.java,5\0\50ec7e0156b9e7d1666fc8388e154e63ee0406cb
-R
-"src/main/java/solver/DFSSolve.java,1\b\1b33b0e8967d24350076e9f9ad3249414a579c71
-W
-'src/main/java/solver/DijkstraSolve.java,7\4\7468a641a149fce42466e09bdde05e0dc9d4910e
 T
 $src/main/java/util/DisjointSets.java,d\3\d336a97f66f5902743b5713a4dea6f69c741835a
 V

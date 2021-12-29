@@ -66,19 +66,12 @@ public class BinaryTreeGen {
         } else if (leftNeigh) {
             carveDirection(1);
         }
-
         current.setVisited(true);
-
-
         if (index - 1 >= 0) {
             current = grid.get(--index);
         }
-        // else we break out of if statement in timer Action Listener and set maze to generated.
-
     }
 
-    // 0 down
-    // 1 right
     private void carveDirection(int dir) {
         if (dir == 0) {
             List<Cell> neighs = current.getAllNeighbours(grid);

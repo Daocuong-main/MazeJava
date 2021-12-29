@@ -40,7 +40,7 @@ public class DFSSolve {
 					endTime = System.currentTimeMillis();
 					timeElapsed = endTime - startTime;
 					try {
-						writeExcel(size,10, timeElapsed);
+						writeExcel(size,9, timeElapsed);
 					} catch (IOException ex) {
 						ex.printStackTrace();
 					}

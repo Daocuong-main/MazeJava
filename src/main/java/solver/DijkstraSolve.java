@@ -42,7 +42,7 @@ public class DijkstraSolve {
 					endTime = System.currentTimeMillis();
 					timeElapsed = endTime - startTime;
 					try {
-						writeExcel(size,11, timeElapsed);
+						writeExcel(size,10, timeElapsed);
 					} catch (IOException ex) {
 						ex.printStackTrace();
 					}

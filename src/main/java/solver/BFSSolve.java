@@ -40,7 +40,7 @@ public class BFSSolve {
 					endTime = System.currentTimeMillis();
 					timeElapsed = endTime - startTime;
 					try {
-						writeExcel(size,9, timeElapsed);
+						writeExcel(size,8, timeElapsed);
 					} catch (IOException ex) {
 						ex.printStackTrace();
 					}

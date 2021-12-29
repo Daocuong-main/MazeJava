@@ -2,7 +2,6 @@ package main;
 
 import generator.*;
 import solver.BFSSolve;
-import solver.BiDFSSolve;
 import solver.DFSSolve;
 import solver.DijkstraSolve;
 import util.Cell;
@@ -59,16 +58,10 @@ public class MazeGridPanel extends JPanel {
     public void solve(int index) {
         switch (index) {
             case 0:
-                new BiDFSSolve(grid, this);
-                break;
-            case 1:
                 new BFSSolve(grid, this);
                 break;
-            case 2:
+            case 1:
                 new DFSSolve(grid, this);
-                break;
-            case 3:
-                new DijkstraSolve(grid, this);
                 break;
             default:
                 new DijkstraSolve(grid, this);
