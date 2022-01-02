@@ -11,8 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
-import static main.Maze.size;
-import static time.WriteExcelFile.writeExcel;
+import static time.WriteExcelFile.writeExcelGen;
 
 public class BinaryTreeGen {
 
@@ -23,6 +22,7 @@ public class BinaryTreeGen {
     private long startTime;
     private long endTime;
     private long timeElapsed;
+    private int size = Maze.size;
 
 
     public BinaryTreeGen(List<Cell> grid, MazeGridPanel panel) {
@@ -42,7 +42,7 @@ public class BinaryTreeGen {
                     endTime = System.currentTimeMillis();
                     timeElapsed = endTime - startTime;
                     try {
-                        writeExcel(size,1, timeElapsed);
+                        writeExcelGen(size,1, timeElapsed);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

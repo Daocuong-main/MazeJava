@@ -13,8 +13,7 @@ import main.Maze;
 import main.MazeGridPanel;
 import util.Cell;
 
-import static main.Maze.size;
-import static time.WriteExcelFile.writeExcel;
+import static time.WriteExcelFile.writeExcelGen;
 
 public class SidewinderGen {
 
@@ -26,6 +25,7 @@ public class SidewinderGen {
 	private long startTime;
 	private long endTime;
 	private long timeElapsed;
+	private int size = Maze.size;
 
 	public SidewinderGen(List<Cell> grid, MazeGridPanel panel) {
 		this.grid = grid;
@@ -44,7 +44,7 @@ public class SidewinderGen {
 					endTime = System.currentTimeMillis();
 					timeElapsed = endTime - startTime;
 					try {
-						writeExcel(size,6, timeElapsed);
+						writeExcelGen(size,6, timeElapsed);
 					} catch (IOException ex) {
 						ex.printStackTrace();
 					}

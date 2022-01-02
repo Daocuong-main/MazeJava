@@ -11,8 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Stack;
 
-import static main.Maze.size;
-import static time.WriteExcelFile.writeExcel;
+import static time.WriteExcelFile.writeExcelGen;
 
 public class DFSGen {
 
@@ -22,6 +21,7 @@ public class DFSGen {
     private long startTime;
     private long endTime;
     private long timeElapsed;
+    private int size = Maze.size;
 
     public DFSGen(List<Cell> grid, MazeGridPanel panel) {
         this.grid = grid;
@@ -39,7 +39,7 @@ public class DFSGen {
                     endTime = System.currentTimeMillis();
                     timeElapsed = endTime - startTime;
                     try {
-                        writeExcel(size,2, timeElapsed);
+                        writeExcelGen(size,2, timeElapsed);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

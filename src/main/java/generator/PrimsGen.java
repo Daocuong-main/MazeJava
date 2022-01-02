@@ -13,8 +13,7 @@ import main.Maze;
 import main.MazeGridPanel;
 import util.Cell;
 
-import static main.Maze.size;
-import static time.WriteExcelFile.writeExcel;
+import static time.WriteExcelFile.writeExcelGen;
 
 public class PrimsGen {
 
@@ -24,6 +23,7 @@ public class PrimsGen {
 	private long startTime;
 	private long endTime;
 	private long timeElapsed;
+	private int size = Maze.size;
 
 	public PrimsGen(List<Cell> grid, MazeGridPanel panel) {
 		this.grid = grid;
@@ -41,7 +41,7 @@ public class PrimsGen {
 					endTime = System.currentTimeMillis();
 					timeElapsed = endTime - startTime;
 					try {
-						writeExcel(size,5, timeElapsed);
+						writeExcelGen(size,5, timeElapsed);
 					} catch (IOException ex) {
 						ex.printStackTrace();
 					}

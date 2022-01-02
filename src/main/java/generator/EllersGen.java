@@ -11,8 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.*;
 
-import static main.Maze.size;
-import static time.WriteExcelFile.writeExcel;
+import static time.WriteExcelFile.writeExcelGen;
 
 // Slightly modified version in that the algorithm implemented here focuses on columns rather than rows.
 
@@ -27,6 +26,7 @@ public class EllersGen {
     private long startTime;
     private long endTime;
     private long timeElapsed;
+    private int size = Maze.size;
 
     public EllersGen(List<Cell> grid, MazeGridPanel panel) {
         this.grid = grid;
@@ -54,7 +54,7 @@ public class EllersGen {
                     endTime = System.currentTimeMillis();
                     timeElapsed = endTime - startTime;
                     try {
-                        writeExcel(size,3, timeElapsed);
+                        writeExcelGen(size,3, timeElapsed);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

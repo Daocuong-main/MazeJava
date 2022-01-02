@@ -16,6 +16,7 @@ public class MazeGridPanel extends JPanel {
     private static final long serialVersionUID = 7237062514425122227L;
     private final List<Cell> grid = new ArrayList<>();
     private List<Cell> currentCells = new ArrayList<>();
+    private Integer index;
 
     public MazeGridPanel(int rows, int cols) {
         for (int x = 0; x < rows; x++) {
@@ -31,26 +32,36 @@ public class MazeGridPanel extends JPanel {
         return new Dimension(Maze.WIDTH + 1, Maze.HEIGHT + 1);
     }
 
+    public Integer getIndex() {
+        return this.index;
+    }
+
     public void generate(int index) {
         // switch statement for gen method read from combobox in Maze.java
         switch (index) {
             case 0:
                 new BinaryTreeGen(grid, this);
+                this.index = index;
                 break;
             case 1:
                 new DFSGen(grid, this);
+                this.index = index;
                 break;
             case 2:
                 new EllersGen(grid, this);
+                this.index = index;
                 break;
             case 3:
                 new KruskalsGen(grid, this);
+                this.index = index;
                 break;
             case 4:
                 new PrimsGen(grid, this);
+                this.index = index;
                 break;
             default:
                 new SidewinderGen(grid, this);
+                this.index = index;
                 break;
         }
     }

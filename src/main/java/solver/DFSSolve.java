@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Stack;
 
-import static main.Maze.size;
-import static time.WriteExcelFile.writeExcel;
+import static time.WriteExcelFile.writeExcelSol;
+
 
 // Basically a greedy dijkstra's that follows a path until it hits a dead end instead of prioritising the 
 // closest cell to the goal.
@@ -25,6 +25,7 @@ public class DFSSolve {
 	private long startTime;
 	private long endTime;
 	private long timeElapsed;
+	private int size = Maze.size;
 
 	public DFSSolve(List<Cell> grid, MazeGridPanel panel) {
 		this.grid = grid;
@@ -40,7 +41,7 @@ public class DFSSolve {
 					endTime = System.currentTimeMillis();
 					timeElapsed = endTime - startTime;
 					try {
-						writeExcel(size,9, timeElapsed);
+						writeExcelSol(size,1, panel.getIndex(), timeElapsed);
 					} catch (IOException ex) {
 						ex.printStackTrace();
 					}

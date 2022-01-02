@@ -13,8 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import static main.Maze.size;
-import static time.WriteExcelFile.writeExcel;
+import static time.WriteExcelFile.writeExcelSol;
 
 public class BFSSolve {
 	
@@ -24,6 +23,7 @@ public class BFSSolve {
 	private long startTime;
 	private long endTime;
 	private long timeElapsed;
+	private int size = Maze.size;
 
 	public BFSSolve(List<Cell> grid, MazeGridPanel panel) {
 		this.grid = grid;
@@ -41,7 +41,7 @@ public class BFSSolve {
 					endTime = System.currentTimeMillis();
 					timeElapsed = endTime - startTime;
 					try {
-						writeExcel(size,8, timeElapsed);
+						writeExcelSol(size, 0, panel.getIndex(), timeElapsed);
 					} catch (IOException ex) {
 						ex.printStackTrace();
 					}
