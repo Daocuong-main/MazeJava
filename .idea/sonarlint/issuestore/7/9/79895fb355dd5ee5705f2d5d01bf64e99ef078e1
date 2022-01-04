@@ -1,0 +1,11 @@
+
+R
+java:S16123"<Replace this lambda with method reference 'Cell::isVisited'.(ıÛìÔ
+L
+java:S26964"6Make the enclosing method "static" or remove this set.(¿¯­
+E
+java:S1066n"/Merge this if statement with the enclosing one.(ÿ“˜ë
+C
+java:S1604+"(Make this anonymous inner class a lambda(ŒÄ¬Áûÿÿÿÿ
+C
+java:S1604S"(Make this anonymous inner class a lambda(ŒÄ¬Áûÿÿÿÿ

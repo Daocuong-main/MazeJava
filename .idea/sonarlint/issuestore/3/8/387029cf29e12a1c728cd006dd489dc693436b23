@@ -1,0 +1,9 @@
+
+f
+java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(Öç“±
+W
+java:S1612/"<Replace this lambda with method reference 'Cell::isVisited'.(ú¢•–üÿÿÿÿ
+L
+java:S26963"6Make the enclosing method "static" or remove this set.(¿¯­
+C
+java:S1604,"(Make this anonymous inner class a lambda(ŒÄ¬Áûÿÿÿÿ
