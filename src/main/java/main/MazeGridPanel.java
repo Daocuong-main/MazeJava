@@ -28,7 +28,6 @@ public class MazeGridPanel extends JPanel {
 
     @Override
     public Dimension getPreferredSize() {
-        // +1 pixel on width and height so bottom and right borders can be drawn.
         return new Dimension(Maze.WIDTH + 1, Maze.HEIGHT + 1);
     }
 
@@ -37,7 +36,6 @@ public class MazeGridPanel extends JPanel {
     }
 
     public void generate(int index) {
-        // switch statement for gen method read from combobox in Maze.java
         switch (index) {
             case 0:
                 new BinaryTreeGen(grid, this);
@@ -112,7 +110,7 @@ public class MazeGridPanel extends JPanel {
         for (Cell c : currentCells) {
             if (c != null) c.displayAsColor(g, Color.RED);
         }
-        grid.get(0).displayAsColor(g, Color.GREEN); // start cell
-        grid.get(grid.size() - 1).displayAsColor(g, Color.YELLOW); // end or goal cell
+        grid.get(0).displayAsColor(g, Color.GREEN);
+        grid.get(grid.size() - 1).displayAsColor(g, Color.YELLOW);
     }
 }

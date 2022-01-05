@@ -30,15 +30,12 @@ public class EllersGen {
 
     public EllersGen(List<Cell> grid, MazeGridPanel panel) {
         this.grid = grid;
-
         fromIndex = 0;
         toIndex = COLS;
-
         for (int i = 0; i < grid.size(); i++) {
             grid.get(i).setId(i);
             disjointSet.create_set(grid.get(i).getId());
         }
-
         final Timer timer = new Timer(Maze.speed, null);
         timer.addActionListener(new ActionListener() {
             @Override
@@ -54,7 +51,7 @@ public class EllersGen {
                     endTime = System.currentTimeMillis();
                     timeElapsed = endTime - startTime;
                     try {
-                        writeExcelGen(size,3, timeElapsed);
+                        writeExcelGen(size, 3, timeElapsed);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -78,7 +75,6 @@ public class EllersGen {
             this.col = col;
             carveDownQueue.addAll(col);
             carveRightQueue.addAll(col);
-
             final Timer timer = new Timer(Maze.speed, null);
             timer.addActionListener(new ActionListener() {
                 @Override
@@ -103,7 +99,6 @@ public class EllersGen {
         private void carveDown() {
             current = carveDownQueue.poll();
             current.setVisited(true);
-
             if (r.nextBoolean() || col.contains(grid.get(grid.size() - 1))) { // or last column
                 Cell bottom = current.getBottomNeighbour(grid);
                 if (bottom != null) {
@@ -117,7 +112,6 @@ public class EllersGen {
 
         private void carveRight() {
             Cell c = carveRightQueue.poll();
-
             List<Cell> cells = new ArrayList<>();
             for (Cell c2 : col) {
                 if (disjointSet.find_set(c.getId()) == disjointSet.find_set(c2.getId())) {

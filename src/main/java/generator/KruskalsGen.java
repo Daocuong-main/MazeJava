@@ -15,9 +15,6 @@ import java.util.Stack;
 
 import static time.WriteExcelFile.writeExcelGen;
 
-
-// Slightly different as it loops through cells randomly and then each wall of the cell. Not through each wall randomly.
-
 public class KruskalsGen {
 
     private final Stack<Cell> stack = new Stack<>();
@@ -37,7 +34,6 @@ public class KruskalsGen {
             grid.get(i).setId(i);
             disjointSet.create_set(grid.get(i).getId());
         }
-
         stack.addAll(grid);
 
         final Timer timer = new Timer(Maze.speed, null);
@@ -70,16 +66,13 @@ public class KruskalsGen {
     private void carve() {
         current = stack.pop();
         current.setVisited(true);
-
         List<Cell> neighs = current.getAllNeighbours(grid);
-
         for (Cell n : neighs) {
             if (disjointSet.find_set(current.getId()) != disjointSet.find_set(n.getId())) {
                 current.removeWalls(n);
                 disjointSet.union(current.getId(), n.getId());
             }
         }
-
         Collections.shuffle(stack);
     }
 }

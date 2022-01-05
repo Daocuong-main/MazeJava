@@ -25,14 +25,6 @@ public class Cell {
         this.distance = -1;
     }
 
-    public boolean[] getWalls() {
-        return walls;
-    }
-
-    public void setWalls(boolean[] walls) {
-        this.walls = walls;
-    }
-
     public int getX() {
         return x;
     }
@@ -57,16 +49,8 @@ public class Cell {
         this.visited = visited;
     }
 
-    public boolean isDeadEnd() {
-        return deadEnd;
-    }
-
     public void setDeadEnd(boolean deadEnd) {
         this.deadEnd = deadEnd;
-    }
-
-    public boolean isPath() {
-        return path;
     }
 
     public void setPath(boolean path) {
@@ -92,12 +76,10 @@ public class Cell {
     public void draw(Graphics g) {
         int x2 = x * Maze.W;
         int y2 = y * Maze.W;
-
         if (visited) {
             g.setColor(Color.WHITE);
             g.fillRect(x2, y2, Maze.W, Maze.W);
         }
-
         if (path) {
             g.setColor(Color.CYAN);
             g.fillRect(x2, y2, Maze.W, Maze.W);
@@ -105,7 +87,6 @@ public class Cell {
             g.setColor(Color.ORANGE);
             g.fillRect(x2, y2, Maze.W, Maze.W);
         }
-
         g.setColor(Color.BLACK);
         if (walls[0]) {
             g.drawLine(x2, y2, x2 + Maze.W, y2);
@@ -126,14 +107,12 @@ public class Cell {
         int x2 = x * Maze.W;
         int y2 = y * Maze.W;
         g.setColor(color);
-        g.fillRect(x2+2, y2+2, Maze.W-3, Maze.W-3);
+        g.fillRect(x2 + 2, y2 + 2, Maze.W - 3, Maze.W - 3);
     }
 
 
     public void removeWalls(Cell next) {
         int x = this.x - next.x;
-        // top 0, right 1, bottom 2, left 3
-
         if (x == 1) {
             walls[3] = false;
             next.walls[1] = false;
@@ -141,9 +120,7 @@ public class Cell {
             walls[1] = false;
             next.walls[3] = false;
         }
-
         int y = this.y - next.y;
-
         if (y == 1) {
             walls[0] = false;
             next.walls[2] = false;
@@ -170,9 +147,7 @@ public class Cell {
     }
 
     public Cell getUnvisitedNeighbour(java.util.List<Cell> grid) {
-
         List<Cell> neighbours = getUnvisitedNeighboursList(grid);
-
         if (neighbours.size() == 1) {
             return neighbours.get(0);
         }
@@ -180,108 +155,82 @@ public class Cell {
     }
 
     public List<Cell> getUnvisitedNeighboursList(List<Cell> grid) {
-
         List<Cell> neighbours = new ArrayList<>(4);
-
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
         Cell bottom = checkNeighbourInGridBounds(grid, new Cell(x, y + 1));
         Cell left = checkNeighbourInGridBounds(grid, new Cell(x - 1, y));
-
         if (top != null) if (!top.visited) neighbours.add(top);
         if (right != null) if (!right.visited) neighbours.add(right);
         if (bottom != null) if (!bottom.visited) neighbours.add(bottom);
         if (left != null) if (!left.visited) neighbours.add(left);
-
         return neighbours;
     }
 
-    // no walls between
     public List<Cell> getValidMoveNeighbours(List<Cell> grid) {
         List<Cell> neighbours = new ArrayList<>(4);
-
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
         Cell bottom = checkNeighbourInGridBounds(grid, new Cell(x, y + 1));
         Cell left = checkNeighbourInGridBounds(grid, new Cell(x - 1, y));
-
         if (top != null) {
             if (!walls[0]) neighbours.add(top);
         }
-
         if (right != null) {
             if (!walls[1]) neighbours.add(right);
         }
-
         if (bottom != null) {
             if (!walls[2]) neighbours.add(bottom);
         }
-
         if (left != null) {
             if (!walls[3]) neighbours.add(left);
         }
-
         return neighbours;
     }
 
-    // used for DFS solving, gets a neighbour that could potentially be part of the solution path.
-    public Cell getPathNeighbour(java.util.List<Cell> grid) {
-        java.util.List<Cell> neighbours = new ArrayList<>();
-
+    public Cell getPathNeighbour(List<Cell> grid) {
+        List<Cell> neighbours = new ArrayList<>();
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
         Cell bottom = checkNeighbourInGridBounds(grid, new Cell(x, y + 1));
         Cell left = checkNeighbourInGridBounds(grid, new Cell(x - 1, y));
-
         if (top != null) {
             if (!top.deadEnd) {
                 if (!walls[0]) neighbours.add(top);
             }
         }
-
         if (right != null) {
             if (!right.deadEnd) {
                 if (!walls[1]) neighbours.add(right);
             }
         }
-
         if (bottom != null) {
             if (!bottom.deadEnd) {
                 if (!walls[2]) neighbours.add(bottom);
             }
         }
-
         if (left != null) {
             if (!left.deadEnd) {
                 if (!walls[3]) neighbours.add(left);
             }
         }
-
         if (neighbours.size() == 1) {
             return neighbours.get(0);
         }
-
         return randomNeighbour(neighbours);
     }
 
-    public java.util.List<Cell> getAllNeighbours(java.util.List<Cell> grid) {
-        java.util.List<Cell> neighbours = new ArrayList<>();
-
+    public List<Cell> getAllNeighbours(List<Cell> grid) {
+        List<Cell> neighbours = new ArrayList<>();
         Cell top = checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
         Cell right = checkNeighbourInGridBounds(grid, new Cell(x + 1, y));
         Cell bottom = checkNeighbourInGridBounds(grid, new Cell(x, y + 1));
         Cell left = checkNeighbourInGridBounds(grid, new Cell(x - 1, y));
-
         if (top != null) neighbours.add(top);
         if (right != null) neighbours.add(right);
         if (bottom != null) neighbours.add(bottom);
         if (left != null) neighbours.add(left);
-
         return neighbours;
-    }
-
-    public Cell getTopNeighbour(java.util.List<Cell> grid) {
-        return checkNeighbourInGridBounds(grid, new Cell(x, y - 1));
     }
 
     public Cell getRightNeighbour(java.util.List<Cell> grid) {

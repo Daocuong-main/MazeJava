@@ -39,7 +39,7 @@ public class DFSGen {
                     endTime = System.currentTimeMillis();
                     timeElapsed = endTime - startTime;
                     try {
-                        writeExcelGen(size,2, timeElapsed);
+                        writeExcelGen(size, 2, timeElapsed);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

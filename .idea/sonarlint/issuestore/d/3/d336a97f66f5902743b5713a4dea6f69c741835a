@@ -1,7 +1,0 @@
-
-h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã¢šûÿÿÿÿ
-1
-java:S36267"Remove this redundant jump.(ûÁİ…
-?
-java:S54134")Verify that "remove()" is used correctly.(œÄŒ®
-c	java:S100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿§è½

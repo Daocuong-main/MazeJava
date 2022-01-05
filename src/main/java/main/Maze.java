@@ -21,16 +21,13 @@ public class Maze {
         cols = Math.floorDiv(WIDTH, W);
         rows = cols;
 
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-                    ex.printStackTrace();
-                }
-                createAndShowGUI();
+        EventQueue.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                ex.printStackTrace();
             }
+            createAndShowGUI();
         });
     }
 
@@ -72,7 +69,7 @@ public class Maze {
         genMethodsComboBox.setMaximumRowCount(genMethodsComboBox.getModel().getSize());
         solveMethodsComboBox.setMaximumRowCount(solveMethodsComboBox.getModel().getSize());
 
-        Hashtable<Integer, JLabel> labels = new Hashtable<Integer, JLabel>();
+        Hashtable<Integer, JLabel> labels = new Hashtable<>();
         labels.put(1, new JLabel("Fast"));
         labels.put(40, new JLabel("Slow"));
 

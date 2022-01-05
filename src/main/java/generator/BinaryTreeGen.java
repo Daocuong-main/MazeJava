@@ -42,7 +42,7 @@ public class BinaryTreeGen {
                     endTime = System.currentTimeMillis();
                     timeElapsed = endTime - startTime;
                     try {
-                        writeExcelGen(size,1, timeElapsed);
+                        writeExcelGen(size, 1, timeElapsed);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

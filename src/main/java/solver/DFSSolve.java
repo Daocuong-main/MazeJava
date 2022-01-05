@@ -19,66 +19,66 @@ import static time.WriteExcelFile.writeExcelSol;
 
 public class DFSSolve {
 
-	private final Stack<Cell> path = new Stack<>();
-	private Cell current;
-	private final List<Cell> grid;
-	private long startTime;
-	private long endTime;
-	private long timeElapsed;
-	private int size = Maze.size;
+    private final Stack<Cell> path = new Stack<>();
+    private final List<Cell> grid;
+    private Cell current;
+    private long startTime;
+    private long endTime;
+    private long timeElapsed;
+    private int size = Maze.size;
 
-	public DFSSolve(List<Cell> grid, MazeGridPanel panel) {
-		this.grid = grid;
-		current = grid.get(0);
-		final Timer timer = new Timer(Maze.speed, null);
-		timer.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (!current.equals(grid.get(grid.size() - 1))) {
-					path();
-				} else {
-					Maze.solved = true;
-					endTime = System.currentTimeMillis();
-					timeElapsed = endTime - startTime;
-					try {
-						writeExcelSol(size,1, panel.getIndex(), timeElapsed);
-					} catch (IOException ex) {
-						ex.printStackTrace();
-					}
-					drawPath();
-					timer.stop();
-				}
-				panel.setCurrent(current);
-				panel.repaint();
-				timer.setDelay(Maze.speed);
-			}
-		});
-		timer.start();
-		startTime = System.currentTimeMillis();
-	}
+    public DFSSolve(List<Cell> grid, MazeGridPanel panel) {
+        this.grid = grid;
+        current = grid.get(0);
+        final Timer timer = new Timer(Maze.speed, null);
+        timer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!current.equals(grid.get(grid.size() - 1))) {
+                    path();
+                } else {
+                    Maze.solved = true;
+                    endTime = System.currentTimeMillis();
+                    timeElapsed = endTime - startTime;
+                    try {
+                        writeExcelSol(size, 1, panel.getIndex(), timeElapsed);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    drawPath();
+                    timer.stop();
+                }
+                panel.setCurrent(current);
+                panel.repaint();
+                timer.setDelay(Maze.speed);
+            }
+        });
+        timer.start();
+        startTime = System.currentTimeMillis();
+    }
 
-	private void path() {
-		current.setDeadEnd(true);
-		Cell next = current.getPathNeighbour(grid);
-		if (next != null) {
-			path.push(current);
-			current = next;
-		} else if (!path.isEmpty()) {
-			try {
-				current = path.pop();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    private void path() {
+        current.setDeadEnd(true);
+        Cell next = current.getPathNeighbour(grid);
+        if (next != null) {
+            path.push(current);
+            current = next;
+        } else if (!path.isEmpty()) {
+            try {
+                current = path.pop();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-	private void drawPath() {
-		while (!path.isEmpty()) {
-			try {
-				path.pop().setPath(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    private void drawPath() {
+        while (!path.isEmpty()) {
+            try {
+                path.pop().setPath(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

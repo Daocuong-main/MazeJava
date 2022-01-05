@@ -1,10 +1,0 @@
-
-t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(âŞõ§ÿÿÿÿÿ
-P
-java:S1118":Add a private constructor to hide the implicit public one.(ÍÆë×
-h
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ßÑğ
-h
-java:S3776A"SRefactor this method to reduce its Cognitive Complexity from 200 to the 15 allowed.(Õ‘È-
-`
-java:S1128"CRemove this unused import 'org.apache.poi.xssf.usermodel.XSSFCell'.(Ñƒöğ8¾ ‚â/

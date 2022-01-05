@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import static main.Maze.size;
 import static time.WriteExcelFile.writeExcelSol;
 
 public class DijkstraSolve {
@@ -81,7 +80,6 @@ public class DijkstraSolve {
 
     private class CellDistanceFromGoalComparator implements Comparator<Cell> {
         Cell goal = grid.get(grid.size() - 1);
-
         @Override
         public int compare(Cell arg0, Cell arg1) {
             if (getDistanceFromGoal(arg0) > getDistanceFromGoal(arg1)) {
