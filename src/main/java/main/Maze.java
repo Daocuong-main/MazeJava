@@ -132,7 +132,7 @@ public class Maze {
                 grid.solve(solveMethodsComboBox.getSelectedIndex());
                 cardLayout.last(cards);
             } else {
-                JOptionPane.showMessageDialog(frame, "Please wait until the maze has been generated.");
+                JOptionPane.showMessageDialog(frame, "Thuat toan van con dang sinh me cung");
             }
         });
 
@@ -141,7 +141,7 @@ public class Maze {
                 grid.resetSolution();
                 cardLayout.show(cards, "solve");
             } else {
-                JOptionPane.showMessageDialog(frame, "Please wait until the maze has been solved.");
+                JOptionPane.showMessageDialog(frame, "Thuat toan chua giai xong");
             }
         });
 
