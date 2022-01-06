@@ -3,7 +3,6 @@ package main;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.util.Hashtable;
 
 public class Maze {
     public static final int size = 16;
@@ -68,10 +67,6 @@ public class Maze {
 
         genMethodsComboBox.setMaximumRowCount(genMethodsComboBox.getModel().getSize());
         solveMethodsComboBox.setMaximumRowCount(solveMethodsComboBox.getModel().getSize());
-
-        Hashtable<Integer, JLabel> labels = new Hashtable<>();
-        labels.put(1, new JLabel("Fast"));
-        labels.put(40, new JLabel("Slow"));
 
         JPanel card1 = new JPanel();
         JPanel card2 = new JPanel();
