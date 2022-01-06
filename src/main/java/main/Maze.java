@@ -39,7 +39,7 @@ public class Maze {
     }
 
     private void createAndShowGUI() {
-        JFrame frame = new JFrame("Java Mazes");
+        JFrame frame = new JFrame("MAZE");
 
         JPanel container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
