@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import static time.WriteExcelFile.writeExcelSol;
+import static writeExcel.WriteExcelFile.*;
 
 public class DijkstraSolve {
 
@@ -24,6 +24,8 @@ public class DijkstraSolve {
     private long endTime;
     private long timeElapsed;
     private int size = Maze.size;
+    private int numberOfCellPath = 1;
+    private int numberOfCellVisited = 0;
 
     public DijkstraSolve(List<Cell> grid, MazeGridPanel panel) {
         this.grid = grid;
@@ -36,6 +38,7 @@ public class DijkstraSolve {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!current.equals(grid.get(grid.size() - 1))) {
+                    numberOfCellVisited++;
                     flood();
                 } else {
                     Maze.solved = true;
@@ -47,6 +50,13 @@ public class DijkstraSolve {
                         ex.printStackTrace();
                     }
                     drawPath();
+                    try {
+                        writeExcelNumberOfCellPath(size, panel.getIndex(), numberOfCellPath);
+                        writeExcelNumberOfCellVisited(size, panel.getIndex(), numberOfCellVisited);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    System.out.println(numberOfCellVisited);
                     timer.stop();
                 }
                 panel.setCurrent(current);
@@ -73,6 +83,7 @@ public class DijkstraSolve {
 
     private void drawPath() {
         while (current != grid.get(0)) {
+            numberOfCellPath++;
             current.setPath(true);
             current = current.getParent();
         }
@@ -80,6 +91,7 @@ public class DijkstraSolve {
 
     private class CellDistanceFromGoalComparator implements Comparator<Cell> {
         Cell goal = grid.get(grid.size() - 1);
+
         @Override
         public int compare(Cell arg0, Cell arg1) {
             if (getDistanceFromGoal(arg0) > getDistanceFromGoal(arg1)) {

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Stack;
 
-import static time.WriteExcelFile.writeExcelGen;
+import static writeExcel.WriteExcelFile.writeExcelGen;
 
 public class DFSGen {
 

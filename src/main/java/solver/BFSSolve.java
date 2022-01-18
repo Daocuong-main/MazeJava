@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import static time.WriteExcelFile.writeExcelSol;
+import static writeExcel.WriteExcelFile.writeExcelSol;
 
 public class BFSSolve {
 

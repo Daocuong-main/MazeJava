@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static time.WriteExcelFile.writeExcelGen;
+import static writeExcel.WriteExcelFile.writeExcelGen;
 
 public class PrimsGen {
 

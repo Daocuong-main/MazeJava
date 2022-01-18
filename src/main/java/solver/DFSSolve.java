@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Stack;
 
-import static time.WriteExcelFile.writeExcelSol;
+import static writeExcel.WriteExcelFile.writeExcelSol;
 
 
 // Basically a greedy dijkstra's that follows a path until it hits a dead end instead of prioritising the 

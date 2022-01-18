@@ -11,9 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.*;
 
-import static time.WriteExcelFile.writeExcelGen;
-
-// Slightly modified version in that the algorithm implemented here focuses on columns rather than rows.
+import static writeExcel.WriteExcelFile.writeExcelGen;
 
 public class EllersGen {
 
