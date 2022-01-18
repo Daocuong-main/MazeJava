@@ -297,7 +297,7 @@ public class WriteExcelFile {
     }
 
     public static void writeExcelNumberOfCellPath(int size, int index, int numberOfCell) throws IOException {
-        String excelFilePath = "src/main/java/writeExcel/NumberOfCellPath.xlsx";
+        String excelFilePath = "src/main/java/writeExcel/NumberOfCell.xlsx";
         FileInputStream fileInputStream = new FileInputStream(new File(excelFilePath));
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook(fileInputStream);
         XSSFSheet sheet = xssfWorkbook.getSheetAt(0);
@@ -497,7 +497,7 @@ public class WriteExcelFile {
     }
 
     public static void writeExcelNumberOfCellVisited(int size, int index, int numberOfCell) throws IOException {
-        String excelFilePath = "src/main/java/writeExcel/NumberOfCellVisited.xlsx";
+        String excelFilePath = "src/main/java/writeExcel/NumberOfCell.xlsx";
         FileInputStream fileInputStream = new FileInputStream(new File(excelFilePath));
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook(fileInputStream);
         XSSFSheet sheet = xssfWorkbook.getSheetAt(0);
@@ -505,7 +505,7 @@ public class WriteExcelFile {
             if (index == 0) {
                 for (int i = 2; i < 2 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(1);
+                    cell = sheet.getRow(i).getCell(8);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -514,7 +514,7 @@ public class WriteExcelFile {
             } else if (index == 1) {
                 for (int i = 2; i < 2 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(2);
+                    cell = sheet.getRow(i).getCell(9);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -523,7 +523,7 @@ public class WriteExcelFile {
             } else if (index == 3) {
                 for (int i = 2; i < 2 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(3);
+                    cell = sheet.getRow(i).getCell(10);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -532,7 +532,7 @@ public class WriteExcelFile {
             } else if (index == 4) {
                 for (int i = 2; i < 2 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(4);
+                    cell = sheet.getRow(i).getCell(11);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -541,7 +541,7 @@ public class WriteExcelFile {
             } else {
                 for (int i = 2; i < 2 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(5);
+                    cell = sheet.getRow(i).getCell(12);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -552,7 +552,7 @@ public class WriteExcelFile {
             if (index == 0) {
                 for (int i = 14; i < 14 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(1);
+                    cell = sheet.getRow(i).getCell(8);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -561,7 +561,7 @@ public class WriteExcelFile {
             } else if (index == 1) {
                 for (int i = 14; i < 14 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(2);
+                    cell = sheet.getRow(i).getCell(9);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -570,7 +570,7 @@ public class WriteExcelFile {
             } else if (index == 3) {
                 for (int i = 14; i < 14 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(3);
+                    cell = sheet.getRow(i).getCell(10);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -579,7 +579,7 @@ public class WriteExcelFile {
             } else if (index == 4) {
                 for (int i = 14; i < 14 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(4);
+                    cell = sheet.getRow(i).getCell(11);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -588,7 +588,7 @@ public class WriteExcelFile {
             } else {
                 for (int i = 14; i < 14 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(5);
+                    cell = sheet.getRow(i).getCell(12);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -599,7 +599,7 @@ public class WriteExcelFile {
             if (index == 0) {
                 for (int i = 26; i < 26 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(1);
+                    cell = sheet.getRow(i).getCell(8);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -608,7 +608,7 @@ public class WriteExcelFile {
             } else if (index == 1) {
                 for (int i = 26; i < 26 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(2);
+                    cell = sheet.getRow(i).getCell(9);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -617,7 +617,7 @@ public class WriteExcelFile {
             } else if (index == 3) {
                 for (int i = 26; i < 26 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(3);
+                    cell = sheet.getRow(i).getCell(10);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -626,7 +626,7 @@ public class WriteExcelFile {
             } else if (index == 4) {
                 for (int i = 26; i < 26 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(4);
+                    cell = sheet.getRow(i).getCell(11);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -635,7 +635,7 @@ public class WriteExcelFile {
             } else {
                 for (int i = 26; i < 26 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(5);
+                    cell = sheet.getRow(i).getCell(12);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -646,7 +646,7 @@ public class WriteExcelFile {
             if (index == 0) {
                 for (int i = 38; i < 38 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(1);
+                    cell = sheet.getRow(i).getCell(8);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -655,7 +655,7 @@ public class WriteExcelFile {
             } else if (index == 1) {
                 for (int i = 38; i < 38 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(2);
+                    cell = sheet.getRow(i).getCell(9);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -664,7 +664,7 @@ public class WriteExcelFile {
             } else if (index == 3) {
                 for (int i = 38; i < 38 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(3);
+                    cell = sheet.getRow(i).getCell(10);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -673,7 +673,7 @@ public class WriteExcelFile {
             } else if (index == 4) {
                 for (int i = 38; i < 38 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(4);
+                    cell = sheet.getRow(i).getCell(11);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
@@ -682,7 +682,7 @@ public class WriteExcelFile {
             } else {
                 for (int i = 38; i < 38 + 10; i++) {
                     Cell cell = null;
-                    cell = sheet.getRow(i).getCell(5);
+                    cell = sheet.getRow(i).getCell(12);
                     if (cell.getNumericCellValue() == 0) {
                         cell.setCellValue(numberOfCell);
                         break;
