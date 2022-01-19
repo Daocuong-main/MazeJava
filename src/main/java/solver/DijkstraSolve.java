@@ -53,10 +53,11 @@ public class DijkstraSolve {
                     try {
                         writeExcelNumberOfCellPath(size, panel.getIndex(), numberOfCellPath);
                         writeExcelNumberOfCellVisited(size, panel.getIndex(), numberOfCellVisited);
+                        System.out.println("Path:" + numberOfCellPath);
+                        System.out.println("Visited:" + numberOfCellVisited);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
-                    System.out.println(numberOfCellVisited);
                     timer.stop();
                 }
                 panel.setCurrent(current);
